@@ -57,6 +57,11 @@ import java.util.Map;
 @SuppressWarnings(value = "SpellCheckingInspection")
 public class RomanToInteger {
 
+    /*
+        - establish dictionary
+        - iterate backwards, keeping track of previous value
+        - if previous value is less, add value and vice versa
+     */
     public int romanToInt(String s) {
         Map<Character, Integer> romanToArabicNumersMap = Map.of(
             'I', 1,
