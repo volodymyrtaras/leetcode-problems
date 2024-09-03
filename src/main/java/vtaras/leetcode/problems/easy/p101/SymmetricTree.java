@@ -21,7 +21,7 @@ package vtaras.leetcode.problems.easy.p101;
 public class SymmetricTree {
 
     /*
-     * Tree is symmetric if root is null, if leaves are null, if leaves have equal values in closer and farther parts or are null
+        - tree is symmetric if root is null, if leaves are null, if leaves have equal values in closer and farther parts or are null
      */
     public boolean isSymmetric(TreeNode root) {
         return root == null || (root.left == null && root.right == null) || areSymmetric(root.left, root.right);
