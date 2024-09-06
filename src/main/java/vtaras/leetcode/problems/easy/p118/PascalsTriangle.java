@@ -1,7 +1,6 @@
 package vtaras.leetcode.problems.easy.p118;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -24,38 +23,39 @@ import java.util.List;
 public class PascalsTriangle {
 
     /*
-        - create a variable to store all triangle and a variable to store previous row
-        - iterate from 1 to n including, forming a rows
+        - create a variable to store all triangle
+        - if numRows is greater than 0, add first row and iterate from 1 to n including, forming a rows
         - for each row add 1 to the left and 1 to the right position of the row
-        - if there are still some remaining positions in the row, iterate over the previous row from 1 to c -1
-        - sum previous - 1 and previous indexes numbers and set to the corresponding place
+        - if there are still some remaining positions in the row, iterate over the previous row from 1 to i
+        - sum numbers at j - 1 and j indexes and set to the corresponding place
         - at the end add composed row to result
         - assign composed row as previous row
      */
     public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> rowsList = new ArrayList<>();
+        List<List<Integer>> triangle = new ArrayList<>();
 
-        int[] previousRow = new int[]{};
-        for (int c = 1; c <= numRows; c++) {
-            int[] currentRow = new int[c];
+        if (numRows > 0) {
+            triangle.add(new ArrayList<>());
+            triangle
+                .get(0)
+                .add(1);
 
-            currentRow[0] = 1;
-            currentRow[c - 1] = 1;
+            for (int i = 1; i < numRows; i++) {
+                List<Integer> row = new ArrayList<>();
+                List<Integer> previousRow = triangle.get(i - 1);
 
-            for (int p = 1; p < c - 1; p++) {
-                currentRow[p] = previousRow[p - 1] + previousRow[p];
+                row.add(1);
+
+                for (int j = 1; j < i; j++) {
+                    row.add(previousRow.get(j - 1) + previousRow.get(j));
+                }
+
+                row.add(1);
+
+                triangle.add(row);
             }
-
-            rowsList.add(
-                Arrays
-                    .stream(currentRow)
-                    .boxed()
-                    .toList()
-            );
-
-            previousRow = currentRow;
         }
 
-        return rowsList;
+        return triangle;
     }
 }
