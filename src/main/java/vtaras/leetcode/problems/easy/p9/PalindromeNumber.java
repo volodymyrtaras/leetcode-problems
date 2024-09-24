@@ -28,24 +28,29 @@ package vtaras.leetcode.problems.easy.p9;
 public class PalindromeNumber {
 
     /*
-        - store original number
-        - if number is less than 0, it is not a palindrome
-        - using math operations, revert original number
-        - check equality
+        - initialize a variable to keep an original number
+        - initialize a variable to keep a reversed number
+        - if given number is less than 0, given number is not a palindrome
+        - using multiplication by 10 and modulo by 10, build the reversed number
+        - using dividing by 10, cut given number from the end
+        - if original and reversed numbers match, given number is a palindrome
      */
     public boolean isPalindrome(int x) {
+        boolean isPalindrome;
         int originalNumber = x;
         int reversed = 0;
 
         if (x < 0) {
-            x *= -1;
+            isPalindrome = false;
+        } else {
+            while (x != 0) {
+                reversed = reversed * 10 + x % 10;
+                x /= 10;
+            }
+
+            isPalindrome = reversed == originalNumber;
         }
 
-        while (x != 0) {
-            reversed = reversed * 10 + x % 10;
-            x /= 10;
-        }
-
-        return reversed == originalNumber;
+        return isPalindrome;
     }
 }
