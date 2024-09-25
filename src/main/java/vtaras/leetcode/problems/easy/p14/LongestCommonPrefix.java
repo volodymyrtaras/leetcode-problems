@@ -25,9 +25,9 @@ package vtaras.leetcode.problems.easy.p14;
 public class LongestCommonPrefix {
 
     /*
-        - pick 1st string as common prefix
+        - pick 1st string as a common prefix
         - iterate other strings, checking if they start with it
-        - if no, substring and continue
+        - if no, substring the prefix and continue
         - stop iterating if prefix is empty
      */
     public String longestCommonPrefix(String[] strs) {
