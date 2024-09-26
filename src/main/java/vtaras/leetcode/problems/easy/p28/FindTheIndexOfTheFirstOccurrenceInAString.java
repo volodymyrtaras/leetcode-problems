@@ -26,8 +26,9 @@ package vtaras.leetcode.problems.easy.p28;
 public class FindTheIndexOfTheFirstOccurrenceInAString {
 
     /*
-        - define index as -1
-        - iterate the haystack and check if the remaining string starts with needle
+        - define a variable index as -1
+        - iterate the haystack to the end of possible lengh (heystack - needle)
+        - check if the remaining string starts with needle, if so, return an updated index
      */
     public int strStr(String haystack, String needle) {
         int index = -1;

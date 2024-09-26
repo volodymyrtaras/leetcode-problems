@@ -52,9 +52,10 @@ package vtaras.leetcode.problems.easy.p27;
 public class RemoveElement {
 
     /*
-        - create element to keep index of latest processed element
+        - create element to keep index of latest different element, assign to -1
         - iterate over array and check if current element is not equal to value to remove
         - if is not equal, write it to index after latest different one
+        - return index of latest different element as length of processed array
      */
     public int removeElement(int[] nums, int val) {
         int latestDifferentElementIndex = -1;

@@ -53,6 +53,7 @@ public class RemoveDuplicatesFromSortedArray {
         - create variable to store index of latest unique element
         - iterate over array, check if current value is not the equal to latest unique element
         - if not equals, new unique element is found, increment index of latest unique element and write there current value
+        - return latest unique element index + 1 as length of unique elements
      */
     public int removeDuplicates(int[] nums) {
         int lastUniqueElementIndex = 0;
